@@ -45,7 +45,7 @@ La Quinta are located in Canada, Mexico, China, New Zealand, Turkey, United Arab
 
 ### Exercise 4
 
-Since country is not a variable, we could potentially use the state or zip code variables to distinguish between within or outside the US. If the dataset used specific state codes for outside countries or if zip codes for other countries follow a different pattern than the US, then we can use this information to create a new column titled something like "in_usa" and have responses be "yes" or "no."
+Since country is not a variable, we could potentially use the state or zip code variables to distinguish between within or outside the US. If the dataset used specific state codes for outside countries or if zip codes for other countries follow a different pattern than the US, then we can use this information to create a new column titled something like "in_usa" and have responses be "yes" or "no." Or, we can do what is suggested in the lab (which seems easier) and filter items that have a state not in the state dataframe. 
 
 ### Exercise 5
 
