@@ -14,25 +14,30 @@ library(dsbox)
 
 ```{r load-data, message = FALSE}
 states <- read_csv("data/states.csv")
+
 ```
 
 ### Exercise 1
 
-```{r dataset dimensions}
+```{r dennys dataset dimensions}
 
-nrow(states)
-ncol(states)
+nrow(dennys)
+ncol(dennys)
 
 ```
 
-There are 51 rows and 3 columns. Each row contains a single states (including D.C.), and the variables include the entire state name, the abbreviation, and the area of the state. 
+There are 1643 rows and 6 columns. Each row is a Dennys address, and the variables include the address, city, state, zip code, longitude, and latitude.  
 
 ### Exercise 2
 
-Remove this text, and add your answer for Exercise 2 here.
-Add code chunks as needed.
-Don't forget to label your code chunk.
-Do not use spaces in code chunk labels.
+```{r quinta dataset dimensions}
+
+nrow(laquinta)
+ncol(laquinta)
+
+```
+
+There are 909 rows and 6 columns. This dataset has the same variables as the Dennys dataset, but each row is a La Quinta address. 
 
 ### Exercise 3
 
