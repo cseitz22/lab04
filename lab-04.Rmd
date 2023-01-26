@@ -143,7 +143,30 @@ ggplot(dn_lq, mapping = aes(x = longitude,
 ```
 
 
+### Exercise 11
 
+```{r filter for NC data only}
+
+nc <- dn_lq %>%
+  filter(state =="NC")
+
+ggplot(nc, mapping = aes(x = longitude,
+                            y = latitude,
+                            color = establishment)) +
+  geom_point(alpha=.5)
+
+```
+
+The joke does not seem to hold true in North Carolina. It seem that only 1 location is overlapping and 1 more where a Denny's and La Quinta are right next to each other. 
+
+### Exercise 12
+
+
+```{r}
+
+
+
+```
 
 
 
