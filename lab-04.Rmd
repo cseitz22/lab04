@@ -49,7 +49,14 @@ Since country is not a variable, we could potentially use the state or zip code 
 
 ### Exercise 5
 
-...
+```{r any dennys outside usa}
+
+dennys %>%
+  filter(!(state %in% states$abbreviation))
+
+```
+
+There are no Denny's location outside the U.S., which confirms what we found on the website in exercise 3. 
 
 ### Exercise 6
 
