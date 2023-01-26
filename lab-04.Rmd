@@ -153,7 +153,12 @@ nc <- dn_lq %>%
 ggplot(nc, mapping = aes(x = longitude,
                             y = latitude,
                             color = establishment)) +
-  geom_point(alpha=.5)
+  geom_point(alpha=.5)+
+  scale_color_manual(values=c("#69b3a2", "purple"))+
+  theme_light()+
+  labs(title="Denny's and La Quinta Locations in North Carolina", color ="Establishment")+
+  xlab("Longitude")+
+  ylab("Latitude")
 
 ```
 
@@ -162,12 +167,23 @@ The joke does not seem to hold true in North Carolina. It seem that only 1 locat
 ### Exercise 12
 
 
-```{r}
+```{r filter for Texas data only}
 
+tx <- dn_lq %>%
+  filter(state =="TX")
 
+ggplot(tx, mapping = aes(x = longitude,
+                            y = latitude,
+                            color = establishment)) +
+  geom_point(alpha=.3)+
+  scale_color_manual(values=c("#69b3a2", "purple"))+
+  theme_light()+
+  labs(title="Denny's and La Quinta Locations in Texas", color ="Establishment")+
+  xlab("Longitude")+
+  ylab("Latitude")
 
 ```
 
-
+The joke seems to hold more true for establishments in Texas compared to North Carolina. Specifically, there are very few stand alone Denny's in Texas and a lot of La Quintas that overall with them. 
 
 
