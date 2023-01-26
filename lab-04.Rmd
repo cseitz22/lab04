@@ -62,7 +62,7 @@ There are no Denny's location outside the U.S., which confirms what we found on 
 
 ```{r add country column to Dennys dataset}
 
-dennys %>%
+dennys <- dennys %>%
   mutate(country = "United States")
 
 ```
@@ -82,7 +82,7 @@ Create a tibble of the location of La Quintas outside the US. Looks like there a
 
 ``` {r add country column to La Quinta dataset}
 
-laquinta %>%
+laquinta <- laquinta %>%
   mutate(country = case_when(
     state %in% states$abbreviation     ~ "United States",
     state %in% c("ON", "BC") ~ "Canada",
@@ -94,4 +94,57 @@ laquinta %>%
 ```
 
 Got the code to work, but the locations we have in this dataset do not line up with what La Quinta has on their website. This could be because the dataset has not been updated since new locations were introduced. 
+
+### Exercise 9
+
+```{r filter for US locations}
+
+laquinta <- laquinta %>%
+  filter(country =="United States")
+
+```
+
+```{r number of lcoation by state}
+
+dennys %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation"))
+
+laquinta %>%
+  count(state) %>%
+  inner_join(states, by = c("state" = "abbreviation"))
+
+
+```
+
+
+I'm somewhat surprised there are more Dennys in California than Texas, but more La Quintas in Texas than California. I also expected the numbers to line up better due to the theory that these two establishments are grouped together. 
+
+### Exercise 10
+
+```{r add establishment name and merge}
+
+dennys <- dennys %>%
+  mutate(establishment = "Denny's")
+laquinta <- laquinta %>%
+  mutate(establishment = "La Quinta")
+
+dn_lq <- bind_rows(dennys, laquinta)
+
+```
+
+```{r plot locations}
+
+ggplot(dn_lq, mapping = aes(x = longitude,
+                            y = latitude,
+                            color = establishment)) +
+  geom_point()
+
+```
+
+
+
+
+
+
 
