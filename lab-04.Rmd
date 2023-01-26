@@ -2,7 +2,9 @@
 title: "Lab 04 - La Quinta is Spanish for next to Denny's, Pt. 1"
 author: "Cat Seitz"
 date: "Jan. 24, 2023"
-output: github_document
+output: 
+  html_document: 
+    theme: cosmo
 ---
 
 ### Load packages and data
@@ -138,10 +140,11 @@ dn_lq <- bind_rows(dennys, laquinta)
 ggplot(dn_lq, mapping = aes(x = longitude,
                             y = latitude,
                             color = establishment)) +
-  geom_point()
+  geom_point(alpha=.3)
 
 ```
 
+Baesd on this plot, La Quintas seem to be concentrated in Texas and the Northeast, and Dennys seem to be more concentrated in California and New York. 
 
 ### Exercise 11
 
