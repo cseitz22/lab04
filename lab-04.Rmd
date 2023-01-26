@@ -60,8 +60,38 @@ There are no Denny's location outside the U.S., which confirms what we found on 
 
 ### Exercise 6
 
-...
+```{r add country column to Dennys dataset}
 
- 
-Add exercise headings as needed.
+dennys %>%
+  mutate(country = "United States")
+
+```
+
+### Exercise 7
+
+```{r La Quinta outside US locations}
+
+laquinta %>%
+  filter(!(state %in% states$abbreviation))
+
+```
+
+Create a tibble of the location of La Quintas outside the US. Looks like there are only 14 locations. 
+
+### Exercise 8
+
+``` {r add country column to La Quinta dataset}
+
+laquinta %>%
+  mutate(country = case_when(
+    state %in% states$abbreviation     ~ "United States",
+    state %in% c("ON", "BC") ~ "Canada",
+    state == "ANT"           ~ "Colombia",
+    state %in% c("QR", "AG", "CH", "NL", "VE", "PU", "SL") ~ "Mexico",
+    state ==  "FM" ~ "Honduras"
+  ))
+
+```
+
+Got the code to work, but the locations we have in this dataset do not line up with what La Quinta has on their website. This could be because the dataset has not been updated since new locations were introduced. 
 
